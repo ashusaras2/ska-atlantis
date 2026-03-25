@@ -1,18 +1,23 @@
 ﻿'use client';
 
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 
-export default function ContactForm({ variant = 'default' }) {
+type ContactFormProps = {
+  variant?: 'default' | 'hero';
+};
+
+export default function ContactForm({ variant = 'default' }: ContactFormProps) {
   const isHero = variant === 'hero';
-  const [focused, setFocused] = useState(null);
+  const [focused, setFocused] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
-    const formData = new FormData(e.target);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
     try {
       await fetch("https://formsubmit.co/ashu.saras2@gmail.com", {
@@ -21,7 +26,7 @@ export default function ContactForm({ variant = 'default' }) {
       });
 
       setSubmitted(true);
-      e.target.reset();
+      form.reset();
     } catch (error) {
       console.error("Form submission error:", error);
     } finally {
