@@ -20,10 +20,14 @@ export default function ContactForm({ variant = 'default' }: ContactFormProps) {
     const formData = new FormData(form);
 
     try {
-      await fetch("https://formsubmit.co/ashu.saras2@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ashu.saras2@gmail.com", {
         method: "POST",
         body: formData,
       });
+
+      if (!response.ok) {
+        throw new Error(`Form submission failed: ${response.status}`);
+      }
 
       setSubmitted(true);
       form.reset();
@@ -192,8 +196,6 @@ export default function ContactForm({ variant = 'default' }: ContactFormProps) {
         ) : (
           <form
             onSubmit={handleSubmit}
-            action="https://formsubmit.co/ashu.saras2@gmail.com"
-            method="POST"
           >
             <input type="hidden" name="_captcha" value="false" />
 
