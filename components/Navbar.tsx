@@ -342,7 +342,6 @@ export default function Navbar() {
                 className="object-contain w-auto"
                 style={{ height: '36px' }}
               />
-              <span className="nb-logo-sub">Sidharth Vihar, Ghaziabad</span>
             </div>
           </a>
 

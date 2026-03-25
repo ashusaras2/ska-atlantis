@@ -409,10 +409,8 @@ export default function Hero() {
 
               <div className="hero-animate-5 hero-cta-row">
                 <a href="#contact" className="hero-cta">
-                  <span>Register Interest</span>
-                  <span className="hero-cta-arrow">-&gt;</span>
+                  <span>Rates will open very soon</span>
                 </a>
-                <span className="hero-cta-note">Rates will open very soon</span>
               </div>
             </div>
 

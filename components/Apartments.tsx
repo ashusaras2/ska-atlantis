@@ -7,7 +7,7 @@ export default function Apartments() {
     {
       type: '3 BHK',
       tag: 'Launching Soon',
-      sizes: ['1500 Sq.Ft', '1750 Sq.Ft', '1900 Sq.Ft'],
+      sizes: ['1500sq ft to 2400sq ft '],
       description: 'Luxury semi-furnished homes with practical layouts and modern family comfort.',
       image: img1,
       features: ['Vaastu Compliant Design', 'Podium Based Planning', 'Ultra Luxury Amenities'],
@@ -15,7 +15,7 @@ export default function Apartments() {
     {
       type: '4 BHK',
       tag: 'Ultra Luxury',
-      sizes: ['2100 Sq.Ft', '2250 Sq.Ft', '2400 Sq.Ft'],
+      sizes: ['1500sq ft to 2400sq ft '],
       description: 'Premium 4 BHK residences built for larger families with elegant living spaces.',
       image: img2,
       features: ['Semi-Furnished Specification', '2-Side Open Corner Layout', '46 Acre Park View'],

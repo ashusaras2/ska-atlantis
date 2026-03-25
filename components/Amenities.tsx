@@ -1,17 +1,20 @@
-﻿export default function Amenities() {
+﻿import Image from "next/image";
+import logo from "../public/skalogo.webp";
+
+export default function Amenities() {
   const amenities = [
-    { icon: '\u25C6', name: 'Luxury Clubhouse', sub: 'Signature social spaces' },
-    { icon: '\u25C9', name: 'Ultra Luxury Amenities', sub: 'Curated modern lifestyle' },
-    { icon: '\u27F3', name: 'Podium Development', sub: 'Elevated common zones' },
-    { icon: '\u25A1', name: 'Semi-Furnished Homes', sub: 'Move-in friendly planning' },
-    { icon: '\u2726', name: '46 Acre Park View', sub: 'Open green outlook' },
-    { icon: '\u25CE', name: '2-Side Open Corner', sub: 'Cross-ventilation focused' },
-    { icon: '\u27E1', name: 'Vaastu Compliant', sub: 'Balanced home layout' },
-    { icon: '\u25C7', name: '100% Mivan Build', sub: 'Modern construction quality' },
-    { icon: '\u2B19', name: 'Premium Lobby Design', sub: 'Elegant arrival experience' },
-    { icon: '\u2295', name: 'Multi-Tower Layout', sub: 'Three tower masterplan' },
-    { icon: '\u25CC', name: 'Family-Centric Planning', sub: 'Spacious apartment sizes' },
-    { icon: '\u26A1', name: 'Launch Benefits', sub: 'Rates opening very soon' },
+    { icon: '◆', name: 'Luxury Clubhouse', sub: 'Signature social spaces' },
+    { icon: '◉', name: 'Ultra Luxury Amenities', sub: 'Curated modern lifestyle' },
+    { icon: '⟳', name: 'Podium Development', sub: 'Elevated common zones' },
+    { icon: '□', name: 'Semi-Furnished Homes', sub: 'Move-in friendly planning' },
+    { icon: '✦', name: '46 Acre Park View', sub: 'Open green outlook' },
+    { icon: '◎', name: '2-Side Open Corner', sub: 'Cross-ventilation focused' },
+    { icon: '⟡', name: 'Vaastu Compliant', sub: 'Balanced home layout' },
+    { icon: '◇', name: '100% Mivan Build', sub: 'Modern construction quality' },
+    { icon: '⬙', name: 'Premium Lobby Design', sub: 'Elegant arrival experience' },
+    { icon: '⊕', name: 'Multi-Tower Layout', sub: 'Three tower masterplan' },
+    { icon: '◌', name: 'Family-Centric Planning', sub: 'Spacious apartment sizes' },
+    { icon: '⚡', name: 'Launch Benefits', sub: 'Rates opening very soon' },
   ];
 
   return (
@@ -45,7 +48,6 @@
           background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold-light) 50%, var(--gold) 70%, transparent);
         }
 
-        /* Diagonal stripe texture */
         .am-section::before {
           content: '';
           position: absolute;
@@ -81,12 +83,23 @@
           position: relative;
         }
 
-        @media (max-width: 768px) {
-          .am-inner { padding: 0 24px; }
-          .am-section { padding: 80px 0 72px; }
+        /* ── Brand mark — matches GetExclusiveDetails exactly ── */
+        .am-brand-mark {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 8px 12px;
+          border: 1px solid var(--border);
+          background: rgba(201,168,76,0.06);
+          margin-bottom: 14px;
+        }
+        .am-brand-mark-label {
+          font-size: 11px;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: var(--ink-muted);
         }
 
-        /* Header */
         .am-eyebrow {
           display: inline-flex;
           align-items: center;
@@ -98,7 +111,6 @@
           color: var(--gold);
           margin-bottom: 16px;
         }
-
         .am-eyebrow-line {
           width: 28px; height: 1px;
           background: var(--gold);
@@ -110,7 +122,7 @@
           margin: 20px 0;
         }
 
-        /* Grid */
+        /* ── Grid ── */
         .am-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -118,15 +130,6 @@
           border: 1px solid var(--border);
         }
 
-        @media (max-width: 1024px) {
-          .am-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        @media (max-width: 640px) {
-          .am-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        /* Cell */
         .am-cell {
           padding: 36px 24px 32px;
           border-right: 1px solid var(--border);
@@ -138,33 +141,9 @@
           overflow: hidden;
         }
 
-        /* Remove borders on last column / row per breakpoint */
-        .am-cell:nth-child(4n)   { border-right: none; }
+        .am-cell:nth-child(4n)  { border-right: none; }
+        .am-cell:nth-child(n+9) { border-bottom: none; }
 
-        @media (max-width: 1024px) {
-          .am-cell:nth-child(4n)   { border-right: 1px solid var(--border); }
-          .am-cell:nth-child(3n)   { border-right: none; }
-        }
-
-        @media (max-width: 640px) {
-          .am-cell:nth-child(3n)   { border-right: 1px solid var(--border); }
-          .am-cell:nth-child(2n)   { border-right: none; }
-        }
-
-        /* Bottom border: last row (12 items, 4 col = last 4) */
-        .am-cell:nth-child(n+9)  { border-bottom: none; }
-
-        @media (max-width: 1024px) {
-          .am-cell:nth-child(n+9)  { border-bottom: 1px solid var(--border); }
-          .am-cell:nth-child(n+10) { border-bottom: none; }
-        }
-
-        @media (max-width: 640px) {
-          .am-cell:nth-child(n+10) { border-bottom: 1px solid var(--border); }
-          .am-cell:nth-child(n+11) { border-bottom: none; }
-        }
-
-        /* Gold sweep on hover */
         .am-cell::before {
           content: '';
           position: absolute;
@@ -174,14 +153,9 @@
           opacity: 0;
           transition: opacity 0.3s ease;
         }
-
-        .am-cell:hover {
-          background: rgba(201,168,76,0.04);
-        }
-
+        .am-cell:hover { background: rgba(201,168,76,0.04); }
         .am-cell:hover::before { opacity: 1; }
 
-        /* Icon */
         .am-icon {
           display: inline-flex;
           align-items: center;
@@ -194,7 +168,6 @@
           color: var(--gold);
           transition: background 0.3s, border-color 0.3s, transform 0.3s;
         }
-
         .am-cell:hover .am-icon {
           background: var(--gold-pale);
           border-color: var(--gold);
@@ -210,12 +183,33 @@
           letter-spacing: -0.01em;
           line-height: 1.2;
         }
-
         .am-sub {
           font-size: 12px;
           font-weight: 400;
           color: var(--ink-muted);
           letter-spacing: 0.04em;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+          .am-grid { grid-template-columns: repeat(3, 1fr); }
+          .am-cell:nth-child(4n)   { border-right: 1px solid var(--border); }
+          .am-cell:nth-child(3n)   { border-right: none; }
+          .am-cell:nth-child(n+9)  { border-bottom: 1px solid var(--border); }
+          .am-cell:nth-child(n+10) { border-bottom: none; }
+        }
+
+        @media (max-width: 640px) {
+          .am-grid { grid-template-columns: repeat(2, 1fr); }
+          .am-cell:nth-child(3n)   { border-right: 1px solid var(--border); }
+          .am-cell:nth-child(2n)   { border-right: none; }
+          .am-cell:nth-child(n+10) { border-bottom: 1px solid var(--border); }
+          .am-cell:nth-child(n+11) { border-bottom: none; }
+        }
+
+        @media (max-width: 768px) {
+          .am-inner   { padding: 0 24px; }
+          .am-section { padding: 80px 0 72px; }
         }
       `}</style>
 
@@ -227,10 +221,23 @@
 
           {/* Header */}
           <div>
+            {/* Brand mark — same pattern as GetExclusiveDetails */}
+            <div className="am-brand-mark">
+              <Image
+                src={logo}
+                alt="SKA Group logo"
+                width={108}
+                height={36}
+                priority
+              />
+              <span className="am-brand-mark-label">Premium Living</span>
+            </div>
+
             <div className="am-eyebrow">
               <span className="am-eyebrow-line" />
               Lifestyle Facilities
             </div>
+
             <h2 style={{
               fontFamily: "'Playfair Display', serif",
               fontSize: 'clamp(36px, 4.5vw, 56px)',
@@ -243,7 +250,9 @@
               World-Class{' '}
               <em style={{ fontStyle: 'italic', color: 'var(--gold)' }}>Amenities</em>
             </h2>
+
             <div className="am-header-divider" />
+
             <p style={{
               fontSize: '15.5px',
               fontWeight: 300,
@@ -271,5 +280,3 @@
     </>
   );
 }
-
-

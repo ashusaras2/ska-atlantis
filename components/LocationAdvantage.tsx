@@ -1,13 +1,16 @@
-﻿export default function LocationAdvantage() {
+﻿import Image from "next/image";
+import logo from "../public/skalogo.webp";
+
+export default function LocationAdvantage() {
   const advantages = [
-    { icon: '\u2295', title: 'Sidharth Vihar Address', distance: 'Prime', description: 'Located in one of Ghaziabad\'s fast-growing corridors' },
-    { icon: '\u25C6', title: 'Project Footprint', distance: '4.5 Acres', description: 'Expansive planning with premium residential zoning' },
-    { icon: '\u25CE', title: 'Tower Planning', distance: '3 Towers', description: 'Balanced tower placement for openness and privacy' },
-    { icon: '\u27E1', title: 'Apartment Range', distance: '1500-2400', description: 'Spacious 3 & 4 BHK homes in multiple size options' },
-    { icon: '\u25A1', title: 'Corner Openness', distance: '2-Side', description: 'Corner concept for better light and ventilation' },
-    { icon: '\u25C9', title: 'Podium Concept', distance: 'Elevated', description: 'Dedicated podium-level lifestyle and leisure zones' },
-    { icon: '\u25CC', title: 'Park Facing View', distance: '46 Acres', description: 'Authority park view adding openness and greenery' },
-    { icon: '\u2726', title: 'Launch Update', distance: 'Soon', description: 'Rates will open very soon for priority buyers' },
+    { icon: '⊕', title: 'Sidharth Vihar Address', distance: 'Prime', description: 'Located in one of Ghaziabad\'s fast-growing corridors' },
+    { icon: '◆', title: 'Project Footprint', distance: '4.5 Acres', description: 'Expansive planning with premium residential zoning' },
+    { icon: '◎', title: 'Tower Planning', distance: '3 Towers', description: 'Balanced tower placement for openness and privacy' },
+    { icon: '⟡', title: 'Apartment Range', distance: '1500-2400', description: 'Spacious 3 & 4 BHK homes in multiple size options' },
+    { icon: '□', title: 'Corner Openness', distance: '2-Side', description: 'Corner concept for better light and ventilation' },
+    { icon: '◉', title: 'Podium Concept', distance: 'Elevated', description: 'Dedicated podium-level lifestyle and leisure zones' },
+    { icon: '◌', title: 'Park Facing View', distance: '46 Acres', description: 'Authority park view adding openness and greenery' },
+    { icon: '✦', title: 'Launch Update', distance: 'Soon', description: 'Rates will open very soon for priority buyers' },
   ];
 
   return (
@@ -34,7 +37,6 @@
           overflow: hidden;
         }
 
-        /* Fine dot grid */
         .lc-section::before {
           content: '';
           position: absolute;
@@ -50,10 +52,9 @@
           height: 1px;
           background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold-light) 50%, var(--gold) 70%, transparent);
         }
-        .lc-topline { top: 0; }
+        .lc-topline    { top: 0; }
         .lc-bottomline { bottom: 0; }
 
-        /* Radial center glow */
         .lc-glow {
           position: absolute;
           top: 40%; left: 50%;
@@ -84,12 +85,34 @@
           position: relative;
         }
 
-        @media (max-width: 768px) {
-          .lc-inner { padding: 0 24px; }
-          .lc-section { padding: 80px 0 72px; }
+        /* ── Brand mark — dark-theme variant ── */
+        .lc-brand-mark {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 8px 12px;
+          border: 1px solid rgba(201,168,76,0.25);
+          background: rgba(201,168,76,0.07);
+          margin-bottom: 14px;
         }
 
-        /* Header */
+        /*
+          On the dark ink background the logo .webp may have a white/light
+          background. We invert it so it reads cleanly on dark.
+          If your logo is already transparent/light-on-dark, remove the filter.
+        */
+        .lc-brand-mark-logo {
+          filter: brightness(0) invert(1);
+          opacity: 0.88;
+        }
+
+        .lc-brand-mark-label {
+          font-size: 11px;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.5);
+        }
+
         .lc-eyebrow {
           display: inline-flex;
           align-items: center;
@@ -101,7 +124,6 @@
           color: var(--gold);
           margin-bottom: 16px;
         }
-
         .lc-eyebrow-line {
           width: 28px; height: 1px;
           background: var(--gold);
@@ -122,17 +144,12 @@
           margin-bottom: 72px;
         }
 
-        @media (max-width: 800px) {
-          .lc-header-row { grid-template-columns: 1fr; gap: 24px; margin-bottom: 48px; }
-        }
-
-        /* Address block on right */
+        /* Address card */
         .lc-address {
           padding: 28px 28px 24px;
           border: 1px solid rgba(201,168,76,0.2);
           position: relative;
         }
-
         .lc-address::before {
           content: '';
           position: absolute;
@@ -140,7 +157,6 @@
           height: 2px;
           background: linear-gradient(90deg, var(--gold), var(--gold-light));
         }
-
         .lc-address-label {
           font-size: 10.5px;
           font-weight: 500;
@@ -149,7 +165,6 @@
           color: var(--gold);
           margin-bottom: 10px;
         }
-
         .lc-address-value {
           font-family: 'Playfair Display', serif;
           font-size: 18px;
@@ -158,7 +173,6 @@
           line-height: 1.4;
           margin-bottom: 12px;
         }
-
         .lc-address-sub {
           font-size: 13px;
           font-weight: 400;
@@ -173,10 +187,6 @@
           border: 1px solid rgba(201,168,76,0.15);
         }
 
-        @media (max-width: 900px) { .lc-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 480px) { .lc-grid { grid-template-columns: repeat(2, 1fr); } }
-
-        /* Cell */
         .lc-cell {
           padding: 32px 24px 28px;
           border-right: 1px solid rgba(201,168,76,0.12);
@@ -186,16 +196,8 @@
           cursor: default;
           overflow: hidden;
         }
-
-        .lc-cell:nth-child(4n)   { border-right: none; }
-        .lc-cell:nth-child(n+5)  { border-bottom: none; }
-
-        @media (max-width: 900px) {
-          .lc-cell:nth-child(4n)  { border-right: 1px solid rgba(201,168,76,0.12); }
-          .lc-cell:nth-child(2n)  { border-right: none; }
-          .lc-cell:nth-child(n+5) { border-bottom: 1px solid rgba(201,168,76,0.12); }
-          .lc-cell:nth-child(n+7) { border-bottom: none; }
-        }
+        .lc-cell:nth-child(4n)  { border-right: none; }
+        .lc-cell:nth-child(n+5) { border-bottom: none; }
 
         .lc-cell::before {
           content: '';
@@ -206,18 +208,15 @@
           opacity: 0;
           transition: opacity 0.3s ease;
         }
-
         .lc-cell:hover { background: rgba(201,168,76,0.05); }
         .lc-cell:hover::before { opacity: 1; }
 
-        /* Icon */
         .lc-icon-wrap {
           display: flex;
           align-items: center;
           gap: 12px;
           margin-bottom: 16px;
         }
-
         .lc-icon {
           width: 40px; height: 40px;
           border: 1px solid rgba(201,168,76,0.25);
@@ -228,12 +227,10 @@
           flex-shrink: 0;
           transition: background 0.25s, transform 0.25s;
         }
-
         .lc-cell:hover .lc-icon {
           background: rgba(201,168,76,0.14);
           transform: rotate(10deg) scale(1.08);
         }
-
         .lc-distance {
           font-family: 'Playfair Display', serif;
           font-size: 15px;
@@ -241,7 +238,6 @@
           color: var(--gold-light);
           letter-spacing: -0.01em;
         }
-
         .lc-title {
           font-family: 'Playfair Display', serif;
           font-size: 16px;
@@ -251,12 +247,29 @@
           letter-spacing: -0.01em;
           line-height: 1.2;
         }
-
         .lc-desc {
           font-size: 13px;
           font-weight: 400;
           color: rgba(255,255,255,0.56);
           line-height: 1.6;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+          .lc-grid { grid-template-columns: repeat(2, 1fr); }
+          .lc-cell:nth-child(4n)  { border-right: 1px solid rgba(201,168,76,0.12); }
+          .lc-cell:nth-child(2n)  { border-right: none; }
+          .lc-cell:nth-child(n+5) { border-bottom: 1px solid rgba(201,168,76,0.12); }
+          .lc-cell:nth-child(n+7) { border-bottom: none; }
+        }
+
+        @media (max-width: 800px) {
+          .lc-header-row { grid-template-columns: 1fr; gap: 24px; margin-bottom: 48px; }
+        }
+
+        @media (max-width: 768px) {
+          .lc-inner   { padding: 0 24px; }
+          .lc-section { padding: 80px 0 72px; }
         }
       `}</style>
 
@@ -271,10 +284,25 @@
           {/* Header row */}
           <div className="lc-header-row">
             <div>
+
+              {/* Brand mark — inverted for dark background */}
+              <div className="lc-brand-mark">
+                <Image
+                  src={logo}
+                  alt="SKA Group logo"
+                  width={108}
+                  height={36}
+                  priority
+                  className="lc-brand-mark-logo"
+                />
+                <span className="lc-brand-mark-label">Location Advantage</span>
+              </div>
+
               <div className="lc-eyebrow">
                 <span className="lc-eyebrow-line" />
                 Connectivity
               </div>
+
               <h2 style={{
                 fontFamily: "'Playfair Display', serif",
                 fontSize: 'clamp(36px, 4.5vw, 56px)',
@@ -287,7 +315,9 @@
                 Strategically{' '}
                 <em style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>Located</em>
               </h2>
+
               <div className="lc-header-divider" />
+
               <p style={{
                 fontSize: '15px',
                 fontWeight: 300,
@@ -308,7 +338,7 @@
               </div>
               <div className="lc-address-sub">
                 Uttar Pradesh - 201010<br />
-                Luxury 3 & 4 BHK Apartments
+                Luxury 3 &amp; 4 BHK Apartments
               </div>
             </div>
           </div>
@@ -332,6 +362,3 @@
     </>
   );
 }
-
-
-
