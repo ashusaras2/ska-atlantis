@@ -362,7 +362,7 @@ export default function Hero() {
             <div className="hero-copy">
               <div className="hero-animate-1 hero-eyebrow">
                 <div className="hero-eyebrow-line" />
-                <span className="hero-eyebrow-text">Sidharth Vihar | Ghaziabad</span>
+                <span className="hero-eyebrow-text">Sidharth ViharRR | Ghaziabad</span>
               </div>
 
               <h1 className="hero-animate-2 hero-title">
